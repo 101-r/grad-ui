@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="grad">
+	<schema id="com.github.grad" path="/com/github/grad/">
+	</schema>
+</schemalist>

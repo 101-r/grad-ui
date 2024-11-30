@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  
+  <template class="GradWindow" parent="AdwApplicationWindow">
+    <property name="default-width">840</property>
+    <property name="default-height">640</property>
+    <property name="height-request">400</property>
+    <property name="width-request">460</property>
+    
+    <property name="content">
+      <object class="AdwNavigationSplitView">
+        <property name="sidebar">
+          <object class="AdwNavigationPage">
+            <property name="title" translatable="yes">Files</property>
+            <property name="child">
+              <object class="AdwToolbarView">
+                <child type="top">
+                  <object class="AdwHeaderBar">
+                    <child type="start">
+                      <object class="GtkButton">
+                        <property name="has-frame">no</property>
+                        <property name="icon-name">system-search-symbolic</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <property name="content">
+                  <object class="GtkBox">
+                    <property name="orientation">vertical</property>
+                    <property name="margin-top">5</property>
+                    <property name="margin-start">5</property>
+                    <property name="margin-end">5</property>
+                    <property name="spacing">3</property>
+                    <!-- Sidebar buttons-->
+                    <child> <!-- Home button-->
+                      <object class="GtkButton" id="home_button">
+                        <property name="has-frame">no</property>
+                        <property name="child">
+                          <object class="AdwButtonContent">
+                            <property name="halign">1</property>
+                            <property name="margin-start">5</property>
+                            <property name="icon-name">user-home-symbolic</property>
+                            <property name="label">Home</property>
+                            <style>
+                              <class name="custom-button"/>
+                            </style>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+                    
+                    <child> <!-- Documents button-->
+                      <object class="GtkButton">
+                        <property name="has-frame">no</property>
+                        <property name="child">
+                          <object class="AdwButtonContent">
+                            <property name="halign">1</property>
+                            <property name="margin-start">5</property>
+                            <property name="icon-name">folder-documents-symbolic</property>
+                            <property name="label">Document</property>
+                            <style>
+                              <class name="custom-button"/>
+                            </style>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+                    
+                    <child> <!-- Downloads button-->
+                      <object class="GtkButton">
+                        <property name="has-frame">no</property>
+                        <property name="child">
+                          <object class="AdwButtonContent">
+                            <property name="halign">1</property>
+                            <property name="margin-start">5</property>
+                            <property name="icon-name">folder-download-symbolic</property>
+                            <property name="label">Downloads</property>
+                            <style>
+                              <class name="custom-button"/>
+                            </style>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+                    
+                    <child> <!-- Videos button-->
+                      <object class="GtkButton">
+                        <property name="has-frame">no</property>
+                        <property name="child">
+                          <object class="AdwButtonContent">
+                            <property name="halign">1</property>
+                            <property name="margin-start">5</property>
+                            <property name="icon-name">folder-videos-symbolic</property>
+                            <property name="label">Videos</property>
+                            <style>
+                              <class name="custom-button"/>
+                            </style>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+                    
+                    <child> <!-- Music button-->
+                      <object class="GtkButton">
+                        <property name="has-frame">no</property>
+                        <property name="child">
+                          <object class="AdwButtonContent">
+                            <property name="halign">1</property>
+                            <property name="margin-start">5</property>
+                            <property name="icon-name">folder-music-symbolic</property>
+                            <property name="label">Music</property>
+                            <style>
+                              <class name="custom-button"/>
+                            </style>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+                    
+                    <child> <!-- Pictures button-->
+                      <object class="GtkButton">
+                        <property name="has-frame">no</property>
+                        <property name="child">
+                          <object class="AdwButtonContent">
+                            <property name="halign">1</property>
+                            <property name="margin-start">5</property>
+                            <property name="icon-name">folder-pictures-symbolic</property>
+                            <property name="label">Pictures</property>
+                            <style>
+                              <class name="custom-button"/>
+                            </style>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </property>
+          </object>
+        </property>
+        
+        <property name="content">
+          <object class="AdwNavigationPage">
+            <property name="title" translatable="yes">Content</property>
+            <property name="child">
+              <object class="AdwToolbarView" id="content">
+                <child type="top">
+                  <object class="AdwHeaderBar">
+                  </object>
+                </child>
+              </object>
+            </property>
+          </object>
+        </property>
+        
+      </object>
+    </property>
+  </template>
+</interface>
+

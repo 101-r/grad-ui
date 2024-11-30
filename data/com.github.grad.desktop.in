@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=grad
+Exec=grad
+Icon=com.github.grad
+Terminal=false
+Type=Application
+Categories=Utility;
+Keywords=GTK;
+StartupNotify=true
+DBusActivatable=true

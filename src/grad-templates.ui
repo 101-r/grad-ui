@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  
+  <template class="FileListTemplate" parent="GtkScrolledWindow">
+    <property name="vexpand">yes</property>
+    <!--child>
+      <object class="GtkBox" id="list_box">
+        <property name="margin-top">5</property>
+        <property name="margin-bottom">5</property>
+        <property name="margin-start">5</property>
+        <property name="margin-end">5</property>
+        <property name="orientation">vertical</property>
+      </object>
+    </child-->
+  </template>
+  
+</interface>
+

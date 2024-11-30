@@ -1,0 +1,8 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
+data/com.github.grad.desktop.in
+data/com.github.grad.metainfo.xml.in
+data/com.github.grad.gschema.xml
+src/main.c
+src/grad-window.c
+src/grad-window.ui

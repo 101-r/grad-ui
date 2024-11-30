@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=com.github.grad
+Exec=@bindir@/grad --gapplication-service
