@@ -1,4 +1,4 @@
-/* main.c
+/* directory-content.h
  *
  * Copyright 2024 Ravshan Zaripov
  *
@@ -18,25 +18,35 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include "config.h"
+#pragma once
 
-#include <glib/gi18n.h>
+#include <gtk/gtk.h>
 
-#include "grad-ui-dev-application.h"
+#define IS_DIRECTORY_INFO(data) (((DirectoryInfo *) (data))->type == DIRECTORY_TYPE)
+#define IS_FILE_INFO(data) (((FileInfo *) (data))->type == FILE_TYPE)
 
-int
-main (int argc, char *argv[])
+typedef enum
 {
-  g_autoptr (GradUiDevApplication) app = NULL;
-  int ret;
+  DIRECTORY_TYPE,
+  FILE_TYPE,
+} FileType;
 
-  bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
-  bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-  textdomain (GETTEXT_PACKAGE);
+typedef struct
+{
+  FileType type;
+  gchar *path;
+  gchar *previous;
+  gchar *name;
+} DirectoryInfo;
 
-  app = grad_ui_dev_application_new ("com.github.com", G_APPLICATION_DEFAULT_FLAGS);
-  ret = g_application_run (G_APPLICATION (app), argc, argv);
+typedef struct
+{
+  FileType type;
+  gchar *path;
+  gchar *name;
+  gboolean executable;
+} FileInfo;
 
-  return ret;
-}
+GList *get_directory_content (const gchar *path);
+void free_directory_content (GList *content);
 

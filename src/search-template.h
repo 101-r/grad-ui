@@ -1,4 +1,4 @@
-/* main.c
+/* search-template.h
  *
  * Copyright 2024 Ravshan Zaripov
  *
@@ -18,25 +18,27 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include "config.h"
+#pragma once
 
-#include <glib/gi18n.h>
+#include <adwaita.h>
+#include <gtk/gtk.h>
 
-#include "grad-ui-dev-application.h"
+#include "generic-button.h"
 
-int
-main (int argc, char *argv[])
+G_BEGIN_DECLS
+
+#define SEARCH_TYPE_TEMPLATE (search_template_get_type ())
+
+G_DECLARE_FINAL_TYPE (SearchTemplate, search_template, SEARCH, TEMPLATE, AdwDialog)
+
+struct _SearchTemplate
 {
-  g_autoptr (GradUiDevApplication) app = NULL;
-  int ret;
+  AdwDialog parent_instance;
+  GtkSearchEntry *search_entry;
+  GtkBox *list;
+};
 
-  bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
-  bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-  textdomain (GETTEXT_PACKAGE);
+SearchTemplate *search_template_new (void);
 
-  app = grad_ui_dev_application_new ("com.github.com", G_APPLICATION_DEFAULT_FLAGS);
-  ret = g_application_run (G_APPLICATION (app), argc, argv);
-
-  return ret;
-}
+G_END_DECLS
 

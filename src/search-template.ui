@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="SearchTemplate" parent="AdwDialog">
+    <property name="content-width">940</property>
+    <property name="content-height">740</property>
+    <property name="child">
+      <object class="AdwToolbarView">
+        <child type="top">
+          <object class="AdwHeaderBar">
+            <property name="title-widget">
+              <object class="GtkSearchEntry" id="search_entry">
+                <property name="placeholder-text">Search everywhere</property>
+                <property name="width-request">500</property>
+              </object>
+            </property>
+          </object>
+        </child>
+        <property name="content">
+          <object class="GtkScrolledWindow">
+            <property name="margin-start">30</property>
+            <property name="margin-end">30</property>
+            <child>
+              <object class="GtkBox" id="list">
+                <property name="orientation">vertical</property>
+                <property name="margin-top">5</property>
+                <property name="margin-bottom">5</property>
+                <property name="margin-start">5</property>
+                <property name="margin-end">5</property>
+              </object>  
+            </child>
+          </object>
+        </property>
+      </object>
+    </property>
+  </template>
+</interface>
+

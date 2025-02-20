@@ -20,17 +20,18 @@
 
 #include "config.h"
 
+#include "file-list-template.h"
 #include "grad-window.h"
-
-#include <dirent.h>
-#include <string.h>
 
 struct _GradWindow
 {
   AdwApplicationWindow parent_instance;
 
   /* Template widgets */
-  // GtkLabel *label;
+  AdwToolbarView *content;
+  GtkButton *home_button;
+
+  FileListTemplate *file_list_template;
 };
 
 G_DEFINE_FINAL_TYPE (GradWindow, grad_window, ADW_TYPE_APPLICATION_WINDOW)
@@ -41,31 +42,26 @@ grad_window_class_init (GradWindowClass *klass)
   GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
   gtk_widget_class_set_template_from_resource (widget_class, "/com/github/grad/grad-window.ui");
-  // gtk_widget_class_bind_template_child (widget_class, GradWindow, label);
-}
-
-static void
-ls (GtkWidget *list_box, const char *directory)
-{
-  DIR *dir = opendir (directory);
-  struct dirent *entry;
-
-  if (!dir)
-    {
-      g_warning ("Failed to open directory: %s", directory);
-      return;
-    }
-
-  while ((entry = readdir (dir)) != NULL)
-    {
-      if (strcmp (entry->d_name, ".") == 0 || strcmp (entry->d_name, "..") == 0)
-        continue;
-    }
+  gtk_widget_class_bind_template_child (widget_class, GradWindow, content);
+  gtk_widget_class_bind_template_child (widget_class, GradWindow, home_button);
 }
 
 static void
 grad_window_init (GradWindow *self)
 {
   gtk_widget_init_template (GTK_WIDGET (self));
+
+  gtk_widget_realize (GTK_WIDGET (self->content));
+  gtk_widget_realize (GTK_WIDGET (self->home_button));
+
+  self->file_list_template = file_list_template_new ();
+
+  adw_toolbar_view_set_content (self->content, GTK_WIDGET (self->file_list_template));
+
+  FileButtonData *data = g_new (FileButtonData, 1);
+  data->template = self->file_list_template;
+  data->full_path = (gchar *) "/home/fedora-r";
+
+  g_signal_connect (self->home_button, "clicked", G_CALLBACK (on_file_button_clicked), data);
 }
 

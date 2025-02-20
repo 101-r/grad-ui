@@ -1,4 +1,4 @@
-/* main.c
+/* grad-ui-dev-window.h
  *
  * Copyright 2024 Ravshan Zaripov
  *
@@ -18,25 +18,26 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include "config.h"
+#pragma once
 
-#include <glib/gi18n.h>
+#include <adwaita.h>
+#include <gtk/gtk.h>
 
-#include "grad-ui-dev-application.h"
+#include "file-list-template.h"
+#include "sidebar-template.h"
 
-int
-main (int argc, char *argv[])
+G_BEGIN_DECLS
+
+#define GRAD_UI_DEV_TYPE_WINDOW (grad_ui_dev_window_get_type ())
+
+G_DECLARE_FINAL_TYPE (GradUiDevWindow, grad_ui_dev_window, GRAD_UI_DEV, WINDOW, AdwApplicationWindow)
+
+struct _GradUiDevWindow
 {
-  g_autoptr (GradUiDevApplication) app = NULL;
-  int ret;
+  AdwApplicationWindow parent_instance;
+  FileListTemplate *file_list;
+  SidebarTemplate *sidebar;
+};
 
-  bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
-  bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-  textdomain (GETTEXT_PACKAGE);
-
-  app = grad_ui_dev_application_new ("com.github.com", G_APPLICATION_DEFAULT_FLAGS);
-  ret = g_application_run (G_APPLICATION (app), argc, argv);
-
-  return ret;
-}
+G_END_DECLS
 

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/com/github/com">
+    <file preprocess="xml-stripblanks">grad-ui-dev-window.ui</file>
+    <file preprocess="xml-stripblanks">file-list-template.ui</file>
+    <file preprocess="xml-stripblanks">sidebar-template.ui</file>
+    <file preprocess="xml-stripblanks">search-template.ui</file>
+    <file preprocess="xml-stripblanks">gtk/help-overlay.ui</file>
+    <file>style.css</file>
+  </gresource>
+</gresources>
+

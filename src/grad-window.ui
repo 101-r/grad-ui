@@ -52,7 +52,7 @@
                     </child>
                     
                     <child> <!-- Documents button-->
-                      <object class="GtkButton">
+                      <object class="GtkButton" id="docs_button">
                         <property name="has-frame">no</property>
                         <property name="child">
                           <object class="AdwButtonContent">
@@ -69,7 +69,7 @@
                     </child>
                     
                     <child> <!-- Downloads button-->
-                      <object class="GtkButton">
+                      <object class="GtkButton" id="downloads_button">
                         <property name="has-frame">no</property>
                         <property name="child">
                           <object class="AdwButtonContent">
@@ -86,7 +86,7 @@
                     </child>
                     
                     <child> <!-- Videos button-->
-                      <object class="GtkButton">
+                      <object class="GtkButton" id="videos_button">
                         <property name="has-frame">no</property>
                         <property name="child">
                           <object class="AdwButtonContent">
@@ -103,7 +103,7 @@
                     </child>
                     
                     <child> <!-- Music button-->
-                      <object class="GtkButton">
+                      <object class="GtkButton" id="music_button">
                         <property name="has-frame">no</property>
                         <property name="child">
                           <object class="AdwButtonContent">
@@ -120,7 +120,7 @@
                     </child>
                     
                     <child> <!-- Pictures button-->
-                      <object class="GtkButton">
+                      <object class="GtkButton" id="pictures_button">
                         <property name="has-frame">no</property>
                         <property name="child">
                           <object class="AdwButtonContent">

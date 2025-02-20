@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="GradUiDevWindow" parent="AdwApplicationWindow">
+    <property name="default-width">840</property>
+    <property name="default-height">640</property>
+    <property name="height-request">400</property>
+    <property name="width-request">580</property>
+    <property name="content">
+      <object class="AdwNavigationSplitView">
+        <property name="collapsed">false</property>
+        <property name="content">
+          <object class="FileListTemplate" id="file_list"/>
+        </property>
+        <property name="sidebar">
+          <object class="SidebarTemplate" id="sidebar"/>
+        </property>
+      </object>
+    </property>
+  </template>
+</interface>
+

@@ -1,4 +1,4 @@
-/* main.c
+/* sidebar-template.h
  *
  * Copyright 2024 Ravshan Zaripov
  *
@@ -18,25 +18,32 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include "config.h"
+#pragma once
 
-#include <glib/gi18n.h>
+#include <adwaita.h>
+#include <gtk/gtk.h>
 
-#include "grad-ui-dev-application.h"
+#include "file-list-template.h"
+#include "generic-button.h"
+#include "search-template.h"
 
-int
-main (int argc, char *argv[])
+G_BEGIN_DECLS
+
+#define SIDEBAR_TYPE_TEMPLATE (sidebar_template_get_type ())
+
+G_DECLARE_FINAL_TYPE (SidebarTemplate, sidebar_template, SIDEBAR, TEMPLATE, AdwNavigationPage)
+
+struct _SidebarTemplate
 {
-  g_autoptr (GradUiDevApplication) app = NULL;
-  int ret;
+  AdwNavigationPage parent_instance;
+  SearchTemplate *search_template;
+  GtkButton *search;
+  GtkBox *list;
 
-  bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
-  bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-  textdomain (GETTEXT_PACKAGE);
+  FileListTemplate *file_list_ref;
+};
 
-  app = grad_ui_dev_application_new ("com.github.com", G_APPLICATION_DEFAULT_FLAGS);
-  ret = g_application_run (G_APPLICATION (app), argc, argv);
+SidebarTemplate *sidebar_template_new (void);
 
-  return ret;
-}
+G_END_DECLS
 
